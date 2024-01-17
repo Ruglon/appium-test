@@ -10,7 +10,7 @@ tasks.withType(JavaCompile) {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
-def allureVersion = "2.19.0",
+def allureVersion = "2.25.0",
     junitVersion = "5.8.2",
     slf4jVersion = "1.7.32"
 
@@ -39,4 +39,8 @@ test {
             exceptionFormat "short"
         }
     }
+}
+
+task cleanAllureReport(type: Delete) {
+    delete 'build/reports/allure-report'
 }

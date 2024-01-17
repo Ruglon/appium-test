@@ -1,15 +1,13 @@
 package tests;
 
-import config.ConfigReader;
-import factory.DriverFactory;
-import helper.WaitHelper;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import config.ConfigReader;
+import factory.DriverFactory;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.qameta.allure.Description;
 import page.object.HomePage;
 import page.object.LoginPage;
