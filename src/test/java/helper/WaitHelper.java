@@ -14,13 +14,19 @@ public class WaitHelper {
         this.driver = driver;
     }
 
-    public MobileElement waitForElementToBeVisible(By locator, int timeoutInSeconds) {
+    public MobileElement waitForElementToBeVisible(MobileElement locator, int timeoutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+        return (MobileElement) wait.until(ExpectedConditions.visibilityOf(locator));
+    }
+
+    public MobileElement waitForElementToBeVisibleByLocator(By locator, int timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         return (MobileElement) wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
-    public MobileElement waitForElementToBeClickable(By locator, int timeoutInSeconds) {
+    public MobileElement waitForElementToBeClickable(MobileElement locator, int timeoutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-        return (MobileElement) wait.until(ExpectedConditions.elementToBeClickable(locator));
+        return (MobileElement) wait.until(ExpectedConditions.visibilityOf(locator));
     }
+
 }
