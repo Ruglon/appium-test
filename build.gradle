@@ -10,7 +10,7 @@ tasks.withType(JavaCompile) {
 group 'org.example'
 version '1.0-SNAPSHOT'
 
-def allureVersion = "2.25.0",
+def allureVersion = "2.13.8",
     junitVersion = "5.8.2",
     slf4jVersion = "1.7.32"
 
@@ -32,13 +32,18 @@ dependencies {
 
 test {
     useJUnitPlatform()
-
+    test.finalizedBy(allureServe)
     testLogging {
         lifecycle {
             events "failed"
             exceptionFormat "short"
         }
     }
+}
+
+allure {
+    version = allureVersion
+    autoconfigure = true
 }
 
 task cleanAllureReport(type: Delete) {
